@@ -3,5 +3,5 @@ torchvision
 torchattacks
 Pillow
 streamlit
-face_recognition
+opencv-python-headless
 numpy
