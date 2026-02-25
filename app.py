@@ -4,6 +4,8 @@ from engine import apply_cloak
 import face_recognition
 import numpy as np
 import io
+import cv2
+import numpy as np
 
 st.set_page_config(page_title="Shadow-Cast Privacy Shield", page_icon="🛡️")
 
@@ -41,9 +43,16 @@ if uploaded_file is not None:
         st.subheader("🔍 Privacy Verification Report")
         
         def check_faces(img):
-            img_array = np.array(img)
-            locations = face_recognition.face_locations(img_array)
-            return len(locations)
+            # Convert PIL image to OpenCV format
+            open_cv_image = np.array(img.convert('RGB')) 
+            gray = cv2.cvtColor(open_cv_image, cv2.COLOR_RGB2GRAY)
+            
+            # Load the pre-trained face detector (Standard in OpenCV)
+            face_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalface_default.xml')
+            
+            # Detect faces
+            faces = face_cascade.detectMultiScale(gray, 1.1, 4)
+            return len(faces)
 
         orig_faces = check_faces(original_image)
         prot_faces = check_faces(protected_image)
@@ -52,4 +61,5 @@ if uploaded_file is not None:
         c1.metric("Original AI Detection", f"{orig_faces} FacesFound")
         
         status = "✅ AI BLINDED" if prot_faces == 0 else f"❌ {prot_faces} DETECTED"
+
         c2.metric("Protected AI Detection", status)
