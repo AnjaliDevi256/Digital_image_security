@@ -2,6 +2,7 @@
 torch
 torchvision
 torchattacks
+scipy
 Pillow
 streamlit
 opencv-python-headless
