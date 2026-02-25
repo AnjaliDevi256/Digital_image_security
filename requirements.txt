@@ -7,3 +7,5 @@ Pillow
 streamlit
 opencv-python-headless
 numpy
+dlib-bin
+face_recognition
