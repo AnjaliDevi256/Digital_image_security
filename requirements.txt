@@ -1,0 +1,7 @@
+torch
+torchvision
+torchattacks
+Pillow
+streamlit
+face_recognition
+numpy
