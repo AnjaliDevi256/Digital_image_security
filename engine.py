@@ -24,9 +24,7 @@ def apply_cloak(input_image):
     atk = torchattacks.PGD(model, eps=30/255, alpha=8/255, steps=20)
     adv_t = atk(img_t, torch.tensor([0]))
 
-    noise = torch.randn_like(adv_t) * 0.10
-    adv_t = torch.clamp(adv_t + noise, 0, 1)
-
+    
     adv_img = transforms.ToPILImage()(adv_t.squeeze())
     return adv_img.resize(orig_size)
 
