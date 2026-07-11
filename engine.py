@@ -21,7 +21,7 @@ def apply_cloak(input_image):
     ])(img).unsqueeze(0)
 
     # Force computation on CPU to avoid memory crashes
-    atk = torchattacks.PGD(model, eps=30/255, alpha=8/255, steps=20)
+    atk = torchattacks.PGD(model, eps=8/255, alpha=2/255, steps=5)
     adv_t = atk(img_t, torch.tensor([0]))
 
     
