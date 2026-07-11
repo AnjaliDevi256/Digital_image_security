@@ -17,7 +17,6 @@ Instead of encrypting or hiding images, this system subtly modifies pixel values
 - 🔐 AI-based privacy protection (not traditional encryption)
 - ⚔️ Adversarial attack using PGD (Projected Gradient Descent)
 - 🧠 Uses pretrained ResNet50 model
-- 🖼️ Maintains visual quality for human viewers
 - 🔍 Built-in privacy verification using face detection
 - 🌐 Interactive web app using Streamlit
 - 📥 Download protected images
