@@ -5,5 +5,5 @@ torchattacks
 scipy
 Pillow
 streamlit
-opencv-python
+opencv-python-headless
 numpy
