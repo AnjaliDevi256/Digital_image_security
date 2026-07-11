@@ -130,8 +130,4 @@ The system includes a built-in verification module using OpenCV Haar Cascade fac
 
 ---
 
-## 💡 Key Insight
 
-> This project demonstrates that images can be made **human-visible but AI-invisible** using adversarial machine learning techniques.
-
----
