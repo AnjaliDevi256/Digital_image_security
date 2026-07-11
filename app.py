@@ -44,7 +44,11 @@ if uploaded_file is not None:
             cv_img = cv2.cvtColor(np.array(img.convert('RGB')), cv2.COLOR_RGB2BGR)
             gray = cv2.cvtColor(cv_img, cv2.COLOR_BGR2GRAY)
             # Load the standard XML face detector
-            face_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalface_default.xml')
+            cascade_path = cv2.data.haarcascades + "haarcascade_frontalface_default.xml"
+            face_cascade = cv2.CascadeClassifier(cascade_path)
+            if face_cascade.empty():
+                st.error("Could not load Haar Cascade XML file.")
+                return 0
             faces = face_cascade.detectMultiScale(gray, 1.1, 4)
             return len(faces)
 
